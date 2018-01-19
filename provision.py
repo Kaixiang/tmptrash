@@ -55,6 +55,8 @@ client = Client('3', username='root', password='ChangeMe',
 with open ("./license.lic", "r") as myfile:
     liscense=myfile.read()
 
+
+
 response = client.licensing.add_license(liscense)
 
 if VERBOSE:
@@ -62,6 +64,12 @@ if VERBOSE:
     print response
     print "----------------------------"
 
+response = client.storage_pool.list()
+
+if VERBOSE:
+    print "--- get storage pool Response---"
+    print response
+    print "----------------------------"
 
 response = client.storage_pool.create(STORAGE_POOL)
 
